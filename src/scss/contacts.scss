@@ -1,0 +1,197 @@
+.contacts {
+	min-height: 130dvh;
+}
+.contacts {
+	&__container {
+		display: flex;
+		gap: 81px;
+		& > div {
+			width: 100%;
+		}
+	}
+	&__header {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 233, 55);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 100%;
+		@include adaptiveValue("letter-spacing", -7.6, -2);
+	}
+	&__form {
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0);
+		background: radial-gradient(152.77% 152.77% at 50% 50%, rgba(0, 0, 0, 0.3) 0%, rgba(85, 38, 198, 0.3) 100%);
+		backdrop-filter: blur(10px);
+		@include adaptiveValue("padding", 50, 20);
+	}
+
+	&__title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 70, 30);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-wrap: balance;
+		@include adaptiveValue("margin-bottom", 90, 40);
+	}
+}
+.form {
+	&__fields {
+		display: flex;
+		gap: 40px;
+		margin-bottom: 25px;
+		span {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid rgba($color: #fff, $alpha: 0.7);
+		}
+	}
+
+	input {
+		color: var(--2, #fff);
+		font-family: $fontFamilyMontserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		padding: 7px;
+
+		outline: none;
+
+		&:placeholder {
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		&[type="checkbox"] {
+			display: none;
+		}
+
+		&[type="checkbox"]:checked + label {
+			&::before {
+			}
+			&::after {
+				content: "";
+				@include adaptiveValue("top", 4, 2);
+				left: 2px;
+				width: toRem(11);
+				height: toRem(11);
+				border-radius: 3px;
+			}
+		}
+	}
+
+	label {
+		position: relative;
+		color: var(--2, rgba(255, 255, 255, 0.5));
+		font-family: $fontFamily;
+		@include adaptiveValue("font-size", 16, 10);
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		cursor: pointer;
+
+		a {
+			color: #fff;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			border-radius: 3px;
+			background: var(--2, #fff);
+			width: 15px;
+			height: 15px;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			background-color: $primaryColor;
+			position: absolute;
+			top: 8.5px;
+			left: 7px;
+			border-radius: 50%;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+
+	button {
+		display: block;
+		color: var(--2, #fff);
+		text-align: right;
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 30, 20);
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		text-decoration-line: underline;
+		position: relative;
+		padding: 5px;
+
+		@extend %hover__link;
+
+		&::after {
+			bottom: 8px;
+			height: 3px;
+		}
+	}
+
+	textarea {
+		border-radius: 10px;
+		background: rgba(85, 38, 198, 0.15);
+		color: #fff;
+		font-family: $fontFamilyMontserrat;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 120%;
+		resize: none;
+		padding: 20px;
+		max-height: 115px;
+		height: 115px;
+
+		outline: none;
+
+		&:placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include adaptiveValue("margin-top", 50, 10);
+		@include adaptiveValue("gap", 0, 20);
+	}
+}
+@media (max-width: $tablet) {
+	.contacts {
+		&__container {
+			flex-direction: column;
+		}
+
+		&__header {
+			br {
+				display: none;
+			}
+		}
+
+		.form {
+			&__fields {
+				flex-direction: column;
+			}
+			&__footer {
+				flex-direction: column;
+			}
+		}
+	}
+}

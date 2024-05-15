@@ -1,0 +1,100 @@
+.page {
+	&__info {
+		@include adaptiveValue("margin-bottom", 650, 200);
+	}
+}
+.info {
+	&__header {
+		display: flex;
+		align-items: center;
+	}
+
+	&__title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 150, 45);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+	}
+
+	&__link {
+		a {
+			color: var(--2, #fff);
+			text-align: right;
+			font-family: $fontFamilyMontserrat;
+			@include adaptiveValue("font-size", 30, 20);
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			text-decoration-line: underline;
+			text-wrap: nowrap;
+
+			@extend %hover__link;
+
+			&::after {
+				content: "";
+				bottom: 3px;
+				height: 3px;
+			}
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("gap", 89, 50);
+		align-items: flex-end;
+		@include adaptiveValue("margin-top", 113, 100);
+	}
+
+	&__item {
+		display: flex;
+	}
+
+	&__item-title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 30, 12);
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+	}
+
+	&__text {
+		color: var(--2, #fff);
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 20, 10);
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+
+		@include adaptiveValue("max-width", 552, 150);
+
+		@include adaptiveValue("margin-left", 369, 34);
+	}
+
+	&__number {
+		color: var(--2, #fff);
+		text-align: right;
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 16, 8);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		@include adaptiveValue("margin-left", 123, 20);
+	}
+
+	&__form {
+		@include adaptiveValue("max-width", 860, 500);
+		@include adaptiveValue("margin-top", 0, -50);
+	}
+}
+
+@media (max-width: $mobile) {
+	.info {
+		&__link {
+			display: none;
+		}
+	}
+}

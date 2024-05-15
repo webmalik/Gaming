@@ -1,0 +1,232 @@
+.footer {
+	background: #e0e3e7;
+	color: #0a0a0a;
+	position: relative;
+	z-index: 3;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 100%;
+		background-image: url("../img/footerBG.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		@include adaptiveValue("top", -1120, -320);
+		@include adaptiveValue("height", 1460, 426);
+		// height: 91.125rem;
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		pointer-events: none;
+	}
+	&__container {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__header {
+		color: #0a0a0a;
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 350, 55);
+		font-size: 22rem;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 82%;
+		@include adaptiveValue("letter-spacing", -15, -3);
+	}
+
+	&__wrapper {
+		margin-top: toRem(40);
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: toRem(100);
+	}
+
+	&__copy,
+	&__menu {
+		width: 40%;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		& > ul,
+		& > div {
+			height: 100%;
+		}
+	}
+
+	&__vertical {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("gap", 15, 5);
+
+		li {
+			color: #0a0a0a;
+			font-family: $fontFamilyMontserrat;
+			@include adaptiveValue("font-size", 20, 10);
+			font-size: 1.25rem;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: -0.01875rem;
+
+			a {
+				@extend %hover__link;
+			}
+		}
+	}
+
+	&__all {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	&__horizontal {
+		display: flex;
+		@include adaptiveValue("gap", 28, 9);
+
+		li {
+			color: #0a0a0a;
+			font-family: $fontFamilyMontserrat;
+			@include adaptiveValue("font-size", 16, 10);
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: -0.15px;
+
+			a {
+				@extend %hover__link;
+			}
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		span {
+			color: #0a0a0a;
+			font-family: $fontFamilyMontserrat;
+			@include adaptiveValue("font-size", 16, 10);
+			font-style: normal;
+			font-weight: 600;
+			line-height: 120%; /* 19.2px */
+			letter-spacing: -0.528px;
+			opacity: 0.5;
+		}
+	}
+
+	&__links {
+		display: flex;
+		@include adaptiveValue("gap", 20, 9);
+	}
+
+	&__link {
+		color: #0a0a0a;
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 20, 10);
+		font-style: normal;
+		font-weight: 600;
+		line-height: 86%; /* 17.2px */
+		letter-spacing: -0.8px;
+		text-transform: uppercase;
+		@extend %hover__link;
+	}
+
+	&__copy {
+		color: #0a0a0a;
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 16, 6);
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: -0.4px;
+		text-transform: uppercase;
+		opacity: 0.5;
+	}
+
+	&__back {
+		position: relative;
+		color: #0a0a0a;
+		text-align: right;
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 16, 6);
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		letter-spacing: -0.4px;
+		text-decoration-line: underline;
+		cursor: pointer;
+
+		@extend %hover__link;
+
+		&::after {
+			height: 1px;
+			bottom: 2px;
+		}
+	}
+
+	&__get {
+		span {
+			@include adaptiveValue("font-size", 16, 4);
+		}
+	}
+}
+
+@media (max-height: 750px) {
+	.footer {
+		&::before {
+			content: "";
+			@include adaptiveValue("top", -1120, -250);
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.footer {
+		&::before {
+			content: "";
+			// top: -20rem;
+			// height: toRem(426);
+		}
+		&__all {
+			flex-direction: column;
+			gap: 25px;
+		}
+		&__item {
+			gap: 25px;
+		}
+
+		&__wrapper {
+			position: relative;
+			margin-bottom: toRem(50);
+			margin-top: toRem(40);
+		}
+
+		&__get {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		&__copy,
+		&__menu {
+			width: 60%;
+		}
+
+		&__horizontal {
+			li {
+				opacity: 1;
+			}
+		}
+
+		&__bottom {
+			flex-direction: row;
+		}
+	}
+}

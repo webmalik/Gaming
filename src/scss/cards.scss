@@ -1,0 +1,196 @@
+.cards {
+	@include adaptiveValue("margin-bottom", 800, 300);
+	&__container {
+	}
+
+	&__header {
+		display: flex;
+		align-items: flex-end;
+		@include adaptiveValue("gap", 250, 20);
+		@include adaptiveValue("margin-bottom", 80, 40);
+	}
+
+	&__title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 150, 50);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		width: 60%;
+	}
+
+	&__decription {
+		color: var(--2, #fff);
+		font-family: $fontFamilyMontserrat;
+		@include adaptiveValue("font-size", 20, 12);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		width: 100%;
+		max-width: 503px;
+		@include adaptiveValue("padding-bottom", 40, 20);
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		@include adaptiveValue("gap", 100, 0);
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		border-radius: 10px;
+		border: 10px solid var(--2, #fff);
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		@include adaptiveValue("min-height", 664, 200);
+		@include adaptiveValue("padding-left", 14, 5);
+		@include adaptiveValue("padding-right", 14, 5);
+		@include adaptiveValue("padding-bottom", 35, 10);
+
+		transition: all 0.5s ease-in-out;
+		z-index: 10;
+
+		cursor: pointer;
+
+		&:nth-child(2n) {
+			transform: rotate(3deg);
+		}
+
+		&:nth-child(3n) {
+			transform: rotate(-3deg);
+		}
+
+		&:nth-child(7) {
+			transform: rotate(-3deg);
+		}
+
+		&:nth-child(5) {
+			transform: rotate(-3deg);
+		}
+
+		&:nth-child(1) {
+			transform: rotate(-2deg);
+		}
+
+		&:hover {
+			transform: rotate(0deg) scale(1.03);
+		}
+	}
+
+	&__footer {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		width: 100%;
+		position: relative;
+		z-index: 3;
+
+		a {
+			color: var(--2, #fff);
+			font-family: $fontFamilyMontserrat;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 120%;
+			border-radius: 33px;
+			background: #6a16ab;
+			padding: 4px 0 8px;
+			@include adaptiveValue("padding-left", 26, 10);
+			@include adaptiveValue("padding-right", 26, 10);
+		}
+	}
+
+	&__button {
+		width: 100%;
+		text-align: end;
+		@include adaptiveValue("padding-bottom", 20, 10);
+	}
+
+	&__item-title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 70, 35);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		width: 100%;
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.cards {
+		&__wrapper {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&__item {
+			@include adaptiveValue("min-height", 664, 420);
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.cards {
+		&__header {
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+
+			& > div {
+				width: 100%;
+			}
+		}
+
+		&__wrapper {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+
+		&__image {
+			align-items: flex-start;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
+@media (max-width: 375px) {
+	.cards {
+		&__item {
+			@include adaptiveValue("min-height", 664, 350);
+		}
+
+		&__image {
+			align-items: flex-start;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}

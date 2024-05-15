@@ -1,0 +1,71 @@
+.portfolio {
+	&__container {
+	}
+
+	&__header {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 150, 50);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+		@include adaptiveValue("margin-bottom", 100, 30);
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		position: relative;
+		z-index: 5;
+		@include adaptiveValue("gap", 100, 10);
+		@include adaptiveValue("margin-bottom", 0, 400);
+	}
+
+	&__item {
+		@include adaptiveValue("height", 664, 300);
+		border-radius: 10px;
+		border: 15px solid var(--2, #fff);
+		background: $primaryColor;
+		display: flex;
+		align-items: flex-end;
+		@include adaptiveValue("border-width", 15, 5);
+		@include adaptiveValue("padding-bottom", 18, 10);
+		@include adaptiveValue("padding-left", 34, 18);
+		@include adaptiveValue("padding-right", 100, 150);
+
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			&:nth-child(1n) {
+				transform: rotate(-3.75deg) scale(1.05);
+			}
+			&:nth-child(2n) {
+				transform: rotate(4.35deg) scale(1.05);
+			}
+		}
+	}
+
+	&__title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 70, 40);
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		text-transform: uppercase;
+	}
+}
+
+@media (max-width: $tablet) {
+	.portfolio {
+		&__wrapper {
+			flex-direction: column;
+		}
+
+		&__item {
+			width: 100%;
+		}
+	}
+}

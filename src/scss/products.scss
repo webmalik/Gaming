@@ -1,0 +1,119 @@
+.page {
+	&__products {
+		@include adaptiveValue("margin-top", -1000, 100);
+		position: relative;
+		z-index: 99;
+	}
+}
+.products {
+	overflow: hidden;
+	&__container {
+	}
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__title {
+		color: var(--2, #fff);
+		font-family: $fontFamilyBebasNeue;
+		@include adaptiveValue("font-size", 250, 80);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 90%; /* 225px */
+	}
+
+	&__list {
+		position: absolute;
+		display: flex;
+	}
+
+	&__item {
+		position: absolute;
+		@include adaptiveValue("top", -300, -200);
+		right: 0px;
+		border-radius: 10px;
+		border: 3px solid var(--2, #fff);
+		@include adaptiveValue("width", 315, 106);
+		@include adaptiveValue("height", 419, 141);
+		overflow: hidden;
+		cursor: pointer;
+		z-index: 999;
+		img {
+			width: auto;
+			height: 100%;
+		}
+
+		&::after {
+			position: absolute;
+			content: "";
+			top: 0;
+			@include adaptiveValue("right", -120, 0);
+			@include adaptiveValue("width", 189, 80);
+			@include adaptiveValue("height", 945, 230);
+			background: #7316ab;
+			mix-blend-mode: overlay;
+			filter: blur(80.9000015258789px);
+		}
+		&-1 {
+			transform: translateX(30px) translateY(0px) rotate(15deg);
+		}
+		&-2 {
+			transform: translateX(30px) translateY(0px) rotate(-5deg);
+		}
+		&-3 {
+			transform: translateX(30px) translateY(0px) rotate(-25deg);
+			&::after {
+				content: "";
+				right: auto;
+				@include adaptiveValue("left", -120, 0);
+			}
+		}
+		&-4 {
+			transform: translateX(30px) translateY(0px) rotate(24deg);
+			&::after {
+				content: "";
+				right: auto;
+				@include adaptiveValue("left", -120, 0);
+			}
+		}
+		&-5 {
+			transform: translateX(30px) translateY(0px) rotate(10deg);
+		}
+		&-6 {
+			transform: translateX(30px) translateY(0px) rotate(-12deg);
+		}
+	}
+	&__link {
+		margin-top: toRem(300);
+		position: relative;
+		z-index: 5;
+
+		a {
+			color: var(--2, #fff);
+			font-family: $fontFamilyMontserrat;
+			@include adaptiveValue("font-size", 30, 20);
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			text-decoration-line: underline;
+
+			@extend %hover__link;
+
+			&::after {
+				content: "";
+				@include adaptiveValue("bottom", 3, 1);
+				@include adaptiveValue("height", 3, 2);
+			}
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.products {
+		&__list {
+			top: 100%;
+		}
+	}
+}

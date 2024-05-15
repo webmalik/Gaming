@@ -1,0 +1,272 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.bg {
+	&__main {
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			@include adaptiveValue("min-height", 1920, 1100);
+			background-image: url("../img/mainBg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		&-reverse {
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				@include adaptiveValue("min-height", 1920, 1100);
+				background-image: url("../img/mainBG-Rev.png");
+				background-repeat: no-repeat;
+				background-size: cover;
+				z-index: 1;
+				pointer-events: none;
+			}
+		}
+
+		&-portfolio {
+			@include adaptiveValue("min-height", 1700, 1100);
+		}
+		&-cards {
+			&::after,
+			&::before {
+				@include adaptiveValue("min-height", 1700, 1100);
+			}
+
+			&::before {
+				@include adaptiveValue("top", 1700, 1100);
+			}
+		}
+		&-home {
+			min-height: 300dvh;
+			&::after,
+			&::before {
+				@include adaptiveValue("min-height", 1700, 1100);
+			}
+
+			&::before {
+				@include adaptiveValue("top", 1700, 1100);
+			}
+		}
+	}
+}
+
+%hover__link {
+	position: relative;
+	cursor: pointer;
+	// &::after {
+	// 	content: "";
+	// 	display: block;
+	// 	height: 2px;
+	// 	width: 0;
+	// 	background: #6a16ab;
+	// 	position: absolute;
+	// 	bottom: -5px;
+	// 	left: 0;
+	// 	margin: 0 auto;
+	// 	transition: all 0.5s ease-in;
+	// 	transform: translateX(200%);
+	// }
+
+	// &:hover {
+	// 	color: #6a16ab;
+	// 	text-decoration: none;
+	// 	&::after {
+	// 		content: "";
+	// 		width: 100%;
+	// 		transform: translateX(0);
+	// 	}
+	// }
+}
+
+.hover__link {
+	transition: all 0.5s ease-in-out;
+	&:hover {
+		text-decoration: none;
+	}
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 140%;
+		height: auto;
+	}
+
+	svg path {
+		stroke: #fff;
+		stroke-width: 4px;
+		fill: transparent;
+	}
+}
+.hover__link-p {
+	&:hover {
+		text-decoration: none;
+
+		svg path {
+			stroke-dashoffset: 0 !important;
+		}
+	}
+}
+
+.hover__link-2 {
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 140%;
+		height: auto;
+	}
+
+	svg path {
+		stroke: #fff;
+		stroke-width: 6px;
+		fill: transparent;
+	}
+}
+.hover__link-footer {
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 140%;
+		height: auto;
+	}
+
+	svg path {
+		stroke: rgb(10, 10, 10);
+		stroke-width: 6px;
+		fill: transparent;
+	}
+}
+
+.preloader {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #0a0a0a;
+	z-index: 9999;
+	transition: all 0.5s ease-in-out;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+
+	canvas,
+	video {
+		position: relative;
+		z-index: 111;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.mobile {
+		display: none;
+	}
+
+	.desctop {
+		display: block;
+	}
+}
+
+@media (max-width: $tablet) {
+	.preloader {
+		video {
+			position: relative;
+			z-index: 111;
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+
+		.mobile {
+			display: block;
+		}
+
+		.desctop {
+			display: none;
+		}
+	}
+}
+
+.noise {
+	&::after {
+		content: "";
+		position: fixed;
+		pointer-events: none;
+		content: "";
+		-webkit-animation: grain 8s steps(10) infinite;
+		animation: grain 8s steps(10) infinite;
+		animation-duration: 8s;
+		animation-timing-function: steps(10);
+		animation-delay: 0s;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+		animation-fill-mode: none;
+		animation-play-state: running;
+		animation-name: grain;
+		background-image: url("../img/noise.png");
+		height: 300%;
+		left: -50%;
+		top: -110%;
+		width: 300%;
+		z-index: 100;
+	}
+}
+
+@keyframes grain {
+	0%,
+	to {
+		transform: translate(0);
+	}
+
+	10% {
+		transform: translate(-5%, -10%);
+	}
+
+	20% {
+		transform: translate(-15%, 5%);
+	}
+
+	30% {
+		transform: translate(7%, -25%);
+	}
+
+	40% {
+		transform: translate(-5%, 25%);
+	}
+
+	50% {
+		transform: translate(-15%, 10%);
+	}
+
+	60% {
+		transform: translate(15%);
+	}
+
+	70% {
+		transform: translateY(15%);
+	}
+
+	80% {
+		transform: translate(3%, 35%);
+	}
+
+	90% {
+		transform: translate(-10%, 10%);
+	}
+}
