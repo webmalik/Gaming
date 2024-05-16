@@ -1,210 +1,212 @@
 .page {
-	&__process {
-		position: relative;
-		@include adaptiveValue("margin-top", 300, 150);
+  &__process {
+    position: relative;
+    @include adaptiveValue("margin-top", 300, 150);
 
-		&::before {
-			position: absolute;
-			top: -100%;
-			right: 0;
-			content: "";
-			display: block;
-			@include adaptiveValue("width", 361, 0);
-			@include adaptiveValue("height", 1923, 0);
-			background-image: url("../img/process-bg-1.png");
-			background-size: contain;
-			background-repeat: no-repeat;
-			background-position: right top;
-		}
-		&::after {
-			position: absolute;
-			bottom: -100%;
-			right: 0;
-			content: "";
-			display: block;
-			@include adaptiveValue("width", 527, 0);
-			@include adaptiveValue("height", 1801, 0);
-			background-image: url("../img/process-bg-1.png");
-			background-size: contain;
-			background-repeat: no-repeat;
-			background-position: right bottom;
-		}
-	}
+    &::before {
+      position: absolute;
+      top: -100%;
+      right: 0;
+      content: "";
+      display: block;
+      @include adaptiveValue("width", 361, 0);
+      @include adaptiveValue("height", 1923, 0);
+      background-image: url("../img/process-bg-1.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right top;
+    }
+    &::after {
+      position: absolute;
+      bottom: -100%;
+      right: 0;
+      content: "";
+      display: block;
+      @include adaptiveValue("width", 527, 0);
+      @include adaptiveValue("height", 1801, 0);
+      background-image: url("../img/process-bg-1.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right bottom;
+    }
+  }
 }
 .process {
-	&__container {
-	}
+  &__container {
+  }
 
-	&__label {
-		color: rgba($color: #fff, $alpha: 0.7);
-		font-family: $fontFamilyMontserrat;
-		@include adaptiveValue("font-size", 16, 8);
-		font-style: normal;
-		font-weight: 400;
-		line-height: 90%;
-		@include adaptiveValue("margin-bottom", 100, 50);
+  &__label {
+    color: rgba($color: #fff, $alpha: 0.7);
+    font-family: $fontFamilyMontserrat;
+    @include adaptiveValue("font-size", 16, 8);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 90%;
+    @include adaptiveValue("margin-bottom", 100, 50);
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 
-		max-width: 50%;
-		margin-right: 0;
-		margin-left: auto;
-	}
+    max-width: 50%;
+    margin-right: 0;
+    margin-left: auto;
+  }
 
-	&__wrapper {
-		display: flex;
-		width: 100%;
-		justify-content: space-between;
-		align-items: center;
-	}
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-	&__inner {
-		border-radius: 10px;
-		background: var(--2, #fff);
-		color: #000;
-		position: relative;
-		@include adaptiveValue("width", 438, 335);
-		@include adaptiveValue("height", 451, 207);
-		border-bottom: 10px solid $primaryColor;
-	}
+  &__inner {
+    margin-top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    background: var(--2, #fff);
+    color: #000;
+    position: relative;
+    @include adaptiveValue("width", 438, 335);
+    @include adaptiveValue("height", 451, 207);
+    border-bottom: 10px solid $primaryColor;
+  }
 
-	&__content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0;
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
 
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
 
-		transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
 
-		&.active {
-			opacity: 1;
-		}
-	}
+    &.active {
+      opacity: 1;
+    }
+  }
 
-	&__content-0 {
-		&.active {
-			opacity: 1;
-		}
-	}
+  &__content-0 {
+    &.active {
+      opacity: 1;
+    }
+  }
 
-	&__header {
-		display: flex;
-		color: var(--2, #fff);
-		font-family: $fontFamilyMontserrat;
-		@include adaptiveValue("font-size", 16, 8);
-		font-style: normal;
-		font-weight: 400;
-		line-height: 120%;
+  &__header {
+    display: flex;
+    color: var(--2, #fff);
+    font-family: $fontFamilyMontserrat;
+    @include adaptiveValue("font-size", 16, 8);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
 
-		p,
-		span {
-			border-radius: 33px;
-			background: #6a16ab;
-			@include adaptiveValue("height", 31, 14);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+    p,
+    span {
+      border-radius: 33px;
+      background: #6a16ab;
+      @include adaptiveValue("height", 31, 14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-		span {
-			@include adaptiveValue("width", 31, 14);
-		}
+    span {
+      @include adaptiveValue("width", 31, 14);
+    }
 
-		p {
-			padding: 0 22px;
-		}
-	}
+    p {
+      padding: 0 22px;
+    }
+  }
 
-	&__text {
-		max-width: 292px;
-		p {
-			color: #000;
-			font-family: $fontFamilyMontserrat;
-			@include adaptiveValue("font-size", 30, 20);
-			font-style: normal;
-			font-weight: 600;
-			line-height: 90%;
-		}
+  &__text {
+    max-width: 292px;
+    p {
+      color: #000;
+      font-family: $fontFamilyMontserrat;
+      @include adaptiveValue("font-size", 30, 20);
+      font-style: normal;
+      font-weight: 600;
+      line-height: 90%;
+    }
 
-		span {
-			color: #000;
-			font-family: $fontFamilyMontserrat;
-			@include adaptiveValue("font-size", 12, 10);
-			font-style: normal;
-			font-weight: 400;
-			line-height: 120%; /* 19.2px */
-		}
-	}
+    span {
+      color: #000;
+      font-family: $fontFamilyMontserrat;
+      @include adaptiveValue("font-size", 12, 10);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; /* 19.2px */
+    }
+  }
 
-	&__list {
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		@include adaptiveValue("gap", 50, 20);
-	}
+  &__list {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 50, 20);
+  }
 
-	&__item {
-		color: rgba(255, 255, 255, 0.5);
-		font-family: $fontFamily;
-		@include adaptiveValue("font-size", 50, 20);
-		font-style: normal;
-		font-weight: 700;
-		line-height: 90%;
-		transition: all 0.5s ease-in-out;
-		cursor: pointer;
+  &__item {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: $fontFamily;
+    @include adaptiveValue("font-size", 50, 20);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
-		&.active {
-			color: var(--2, #fff);
-			transform: translateX(2rem);
-		}
-	}
+    &.active {
+      color: var(--2, #fff);
+      transform: translateX(2rem);
+    }
+  }
 }
 
 @media (max-width: $tablet) {
-	.process {
-		&::after {
-			content: "";
-			display: none;
-		}
-		&::before {
-			content: "";
-			display: none;
-		}
-		&__wrapper {
-			flex-direction: column;
-			gap: 50px;
-		}
+  .process {
+    &::after {
+      content: "";
+      display: none;
+    }
+    &::before {
+      content: "";
+      display: none;
+    }
+    &__wrapper {
+      flex-direction: column;
+      gap: 50px;
+    }
 
-		&__body {
-			width: 100%;
-		}
+    &__body {
+      width: 100%;
+    }
 
-		&__list {
-			width: 100%;
-		}
+    &__list {
+      width: 100%;
+    }
 
-		&__inner {
-			width: 100%;
-		}
-		&__label {
-			margin-bottom: 0;
-			margin-right: auto;
-			margin-left: 0;
-		}
-		&__item {
-			br {
-				display: none;
-			}
-		}
-	}
+    &__inner {
+      width: 100%;
+    }
+    &__label {
+      margin-bottom: 0;
+      margin-right: auto;
+      margin-left: 0;
+    }
+    &__item {
+      br {
+        display: none;
+      }
+    }
+  }
 }
