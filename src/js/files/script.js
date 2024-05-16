@@ -326,26 +326,27 @@ function processAnimation() {
 
     gsap.timeline({
       scrollTrigger: {
-        trigger: process,
+        trigger: processInner,
         start: "center center",
         scrub: 1,
         pin: processInner,
-        pinSpacing: true,
-        end: "940px",
+        // pinSpacing: true,
+        end: "500px",
+        markers: true,
         onEnter: (self) => {
           processContent0.classList.remove("active");
         },
         onUpdate: (self) => {
-          const progress = self.progress * 1000;
+          const progress = self.progress * 110;
           processItems.forEach((item, index) => {
-            if (progress >= index * 100 && progress < (index + 1) * 100) {
+            if (progress >= index * 11 && progress < (index + 1) * 11) {
               item.classList.add("active");
             } else {
               item.classList.remove("active");
             }
           });
           processContents.forEach((item, index) => {
-            if (progress >= index * 100 && progress < (index + 1) * 100) {
+            if (progress >= index * 11 && progress < (index + 1) * 11) {
               item.classList.add("active");
             } else {
               item.classList.remove("active");

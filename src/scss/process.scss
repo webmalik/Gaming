@@ -58,12 +58,10 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    align-items: center;
+    min-height: 100dvh;
   }
 
   &__inner {
-    margin-top: 50%;
-    transform: translateY(-50%);
     border-radius: 10px;
     background: var(--2, #fff);
     color: #000;
@@ -158,7 +156,7 @@
   &__item {
     color: rgba(255, 255, 255, 0.5);
     font-family: $fontFamily;
-    @include adaptiveValue("font-size", 50, 20);
+    @include adaptiveValue("font-size", 50, 50);
     font-style: normal;
     font-weight: 700;
     line-height: 90%;
@@ -204,6 +202,7 @@
       margin-left: 0;
     }
     &__item {
+      @include adaptiveValue("font-size", 50, 20);
       br {
         display: none;
       }
